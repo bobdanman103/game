@@ -66,26 +66,10 @@ html, body {
 </canvas>
 
 
-
-
-
-
-
 <img id="grassland"  style="visibility:hidden" src="https://i.ibb.co/HPcgvQ3/New-Project-7.png" alt="">
 
 
-
-
-
-
-
 <img id="player"  style="visibility:hidden" src="https://i.ibb.co/GJpp0Ch/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-1.png" alt="">
-
-
-
-
-
-
 
 <script>
 
@@ -94,32 +78,8 @@ var myVar = setInterval(move, 20);
 
 var clicks = 0; 
 function clickfunc(){
-clicks = clicks + 1;
-
-if (clicks == 2){
-	myMusic = new sound("gametheme.mp3");
-}
-
-if (clicks == 3){
-	myMusic = new sound("gametheme2.mp3");
-}
-
-myMusic.play();
-
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function sound(src) {
@@ -164,15 +124,8 @@ function sound(src) {
 }
 
 
-
-
-
-
+var keys = [];
 var c = document.getElementById("myCanvas");
-
-
- 
-
 
 var ctx = c.getContext("2d");
 
@@ -181,10 +134,6 @@ var w = window.innerWidth;
 
 
 var h = window.innerHeight;
-
-
-
-
 
 
 c.width  = w;
@@ -209,9 +158,6 @@ w = window.innerWidth;
 
 
 h = window.innerHeight;
-
-
-
 
 
 
@@ -255,7 +201,17 @@ ctx.drawImage(bgimg, 0, 0,800,400);
 
 
 	
+if (keys[83] == true){
 
+s.play();
+
+}
+
+if (keys[72] == true){
+
+h.play();
+
+}
 
 ctx.drawImage(plyr, 300 + noob, 200,200,200);
 
@@ -266,6 +222,10 @@ if (noob > 100){noob = 0;}
 noob = noob + 1;
 
 
+ctx.fillStyle = "black";
+ctx.font = '50px serif';
+ctx.fillText(keys[72], 10,50);
+
 }//End of FUNCTION
 
 
@@ -273,41 +233,20 @@ noob = noob + 1;
 
 
 document.onkeydown = function(e) {
+keys[e.keyCode] = true;
 
-
-
-
+s = new sound("s.mp3");
+h = new sound("h.mp3");
 
 
 }//End of keydown function
 
-
-
-
-
-
  document.onkeyup = function(e) {
-
-
-
-
-
-
+   keys[e.keyCode] = false;
  }
 
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 
