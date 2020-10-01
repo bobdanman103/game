@@ -201,9 +201,52 @@ ctx.drawImage(bgimg, 0, 0,800,400);
 
 
 	
+if (keys[90] == true){
+
+z.play();
+
+}
+
 if (keys[83] == true){
 
 s.play();
+
+}
+
+if (keys[88] == true){
+
+x.play();
+
+}
+
+if (keys[68] == true){
+
+d.play();
+
+}
+
+if (keys[67] == true){
+
+c.play();
+
+}
+
+if (keys[86] == true){
+
+v.play();
+
+}
+
+if (keys[71] == true){
+
+g.play();
+
+}
+
+
+if (keys[66] == true){
+
+b.play();
 
 }
 
@@ -213,6 +256,25 @@ h.play();
 
 }
 
+if (keys[78] == true){
+
+n.play();
+
+}
+
+
+if (keys[74] == true){
+
+j.play();
+
+}
+
+
+if (keys[77] == true){
+
+m.play();
+
+}
 ctx.drawImage(plyr, 300 + noob, 200,200,200);
 
 
@@ -237,6 +299,16 @@ keys[e.keyCode] = true;
 
 s = new sound("s.mp3");
 h = new sound("h.mp3");
+d = new sound("d.mp3");
+z = new sound("z.mp3");
+x = new sound("x.mp3");
+c = new sound("c.mp3");
+v = new sound("v.mp3");
+b = new sound("b.mp3");
+n = new sound("n.mp3");
+m = new sound("m.mp3");
+j = new sound("j.mp3");
+g = new sound("g.mp3");
 
 
 }//End of keydown function
