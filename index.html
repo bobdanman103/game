@@ -1,327 +1,94 @@
-
+<!DOCTYPE html>
 <html>
-
-
-
-
 <head>
 
 
 <style>
-
-
 html, body {
-
-
-   max-width: 100%;
-
-
-   overflow-y: hidden;
-
-
+    max-width: 100%;
+    overflow-y: hidden;
 	overflow-x: hidden;
 
-
 }
-
-
 </style>
 
 
-
-
-
-
-
-
-
-
-
-
 </head>
-
-
 <body style="background-color:black;">
-
-
-
-
-
-
 
 <h1 style="color:white;" id="demo"></h1>
 
 
-
-
-
-
-
 	
-
-
-<canvas id="myCanvas" onload ="move()" onclick = "clickfunc()" onkeydown="uniKeyCode(event)" width="800" height="400" style="border:1px solid #d3d3d3;">
-
-
+<canvas id="myCanvas" onload ="move()" onclick = "clickfunc()" onkeydown="uniKeyCode(event)" width="800" height="400" style=" padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;border:3px solid white;">
 </canvas>
 
+<img id="grassland"  style="visibility:hidden" src="https://i.imgur.com/R06cI4d.png" alt="">
 
-<img id="grassland"  style="visibility:hidden" src="https://i.ibb.co/HPcgvQ3/New-Project-7.png" alt="">
 
-
-<img id="player"  style="visibility:hidden" src="https://i.ibb.co/GJpp0Ch/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-1.png" alt="">
 
 <script>
 
 
 var myVar = setInterval(move, 20);
 
-var clicks = 0; 
+
 function clickfunc(){
-
 }
 
-
-function sound(src) {
-
-
-   this.sound = document.createElement("audio");
-
-
-   this.sound.src = src;
-
-
-   this.sound.setAttribute("preload", "auto");
-
-
-   this.sound.setAttribute("controls", "none");
-
-
-   this.sound.style.display = "none";
-
-
-   document.body.appendChild(this.sound);
-
-
-   this.play = function(){
-
-
-       this.sound.play();
-
-
-   }
-
-
-   this.stop = function(){
-
-
-       this.sound.pause();
-
-
-   }   
-
-
-}
-
-
-var keys = [];
 var c = document.getElementById("myCanvas");
-
+   
 var ctx = c.getContext("2d");
 
-
 var w = window.innerWidth;
-
-
 var h = window.innerHeight;
-
-
-c.width  = w;
-
-
-c.height = h;
-
-
-var scalew = (w/800);
-
-
-var scaleh = (h-30)/(400);
-
-
-ctx.scale(scalew,scaleh);
-
+ 
 
 window.onresize = function(event) {
-
-
 w = window.innerWidth;
-
-
 h = window.innerHeight;
-
-
-
-scalew = (w/800);
-
-
-scaleh = (h-30)/(400);
-
-
-c.width  = w;
-
-
-c.height = h;
-
-
-ctx.scale(scalew,scaleh);
-
 
 };
 
-
-var framesArr = ["https://i.ibb.co/GJpp0Ch/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-1.png","https://i.ibb.co/9tn2b8d/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-2.png","https://i.ibb.co/jHy99Vs/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-3.png","https://i.ibb.co/v3pnpGb/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-4.png","https://i.ibb.co/Ykm2Lb3/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-5.png","https://i.ibb.co/p1gYtzn/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-6.png","https://i.ibb.co/ZM6wkWc/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-7.png","https://i.ibb.co/rt3xR6j/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-8.png","https://i.ibb.co/hC8gLnm/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-9.png","https://i.ibb.co/3y53sjn/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-10.png","https://i.ibb.co/Nmd3pHV/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-11.png","https://i.ibb.co/h2yvpn4/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-12.png","https://i.ibb.co/Z2kLvTQ/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-13.png","https://i.ibb.co/G0BSn19/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-14.png","https://i.ibb.co/1KHR151/dahb9zb-cc10c229-66f9-4995-b018-207805bed26b-15.png"]
-
-
-var noob = 0;
-
-
-var plyr = document.getElementById("player");
 
 
 function move() {
 
 
 //Background Image
-
-
 var bgimg = document.getElementById("grassland");
-
-
 ctx.drawImage(bgimg, 0, 0,800,400);
 
 
-	
-if (keys[90] == true){
 
-z.play();
-
-}
-
-if (keys[83] == true){
-
-s.play();
-
-}
-
-if (keys[88] == true){
-
-x.play();
-
-}
-
-if (keys[68] == true){
-
-d.play();
-
-}
-
-if (keys[67] == true){
-
-c.play();
-
-}
-
-if (keys[86] == true){
-
-v.play();
-
-}
-
-if (keys[71] == true){
-
-g.play();
-
-}
-
-
-if (keys[66] == true){
-
-b.play();
-
-}
-
-if (keys[72] == true){
-
-h.play();
-
-}
-
-if (keys[78] == true){
-
-n.play();
-
-}
-
-
-if (keys[74] == true){
-
-j.play();
-
-}
-
-
-if (keys[77] == true){
-
-m.play();
-
-}
-ctx.drawImage(plyr, 300 + noob, 200,200,200);
-
-
-if (noob > 100){noob = 0;}
-
-
-noob = noob + 1;
-
-
-ctx.fillStyle = "black";
-ctx.font = '50px serif';
-ctx.fillText(keys[72], 10,50);
 
 }//End of FUNCTION
 
 
-//Move events
 
 
-document.onkeydown = function(e) {
-keys[e.keyCode] = true;
+ //Move events
+ document.onkeydown = function(e) {
 
-s = new sound("s.mp3");
-h = new sound("h.mp3");
-d = new sound("d.mp3");
-z = new sound("z.mp3");
-x = new sound("x.mp3");
-c = new sound("c.mp3");
-v = new sound("v.mp3");
-b = new sound("b.mp3");
-n = new sound("n.mp3");
-m = new sound("m.mp3");
-j = new sound("j.mp3");
-g = new sound("g.mp3");
-
-
-}//End of keydown function
-
- document.onkeyup = function(e) {
-   keys[e.keyCode] = false;
- }
+ 
+ }//End of keydown function
+ 
+  document.onkeyup = function(e) {
+  
+  }
 
 
 </script>
 
+
+<div style='display:none'>{title}</div>
+<div style='display:none'>{menu}</div>
+<div style='display:none'>{content}</div>
+<div style='padding: 20px; width:100%; text-align:center;'>{footer}</div>
 </body>
-
-
 </html>
 
